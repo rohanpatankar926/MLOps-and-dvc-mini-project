@@ -6,6 +6,9 @@ targe_col: Target
 
 data_source:
   s3_source: data_given/winequality.csv
+
+load_data: 
+  raw_dataset_csv: data/raw/winequality.csv
   
 split_data:
   train_path: data/processed/train_winequality.csv
