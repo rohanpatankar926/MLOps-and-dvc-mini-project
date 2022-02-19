@@ -51,7 +51,24 @@ def model_evaluation(config_path):
     model_path=os.path.join(model_dir,"model.joblib")
     joblib.dump(lr,model_path)
     
+    scores_file=config["reports"]["scores"]
+    params_file=config["reports"]["params"]
     
+    
+    
+    with open(scores_file,"w") as f:
+        score={
+            "rmse":rmse,
+            "mae":mae,
+            "r2_score":r2
+        }
+        json.dump(score,f,indent=4)
+    with open(params_file,"w") as f:
+        metrics={
+            "alpha":alpha,
+            "l1 ratio":l1_ratio
+        }
+        json.dump(metrics,f,indent=4)
 if __name__=="__main__":
     args=argparse.ArgumentParser()
     args.add_argument("--config",default="params.yaml")
