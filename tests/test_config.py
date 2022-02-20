@@ -1,4 +1,3 @@
-from multiprocessing.sharedctypes import Value
 import pytest
 
 class NotInRange(Exception):
@@ -14,3 +13,9 @@ def test_generic():
    with pytest.raises(NotInRange):
        if a not in range(10,20):
            raise NotInRange
+       
+def test_function():
+    a=10/10
+    with pytest.raises(NotInRange):
+        if a in range(10):
+            raise NotInRange
