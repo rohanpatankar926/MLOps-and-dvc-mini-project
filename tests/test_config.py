@@ -16,6 +16,6 @@ def test_generic():
        
 def test_function():
     a=10/10
-    with pytest.raises(NotInRange):
+    with pytest.raises(ZeroDivisionError):
         if a in range(10):
-            raise NotInRange
+            raise ZeroDivisionError
